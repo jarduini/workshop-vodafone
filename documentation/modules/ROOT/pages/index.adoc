@@ -1,0 +1,68 @@
+= Welcome to Red Hat Service Mesh: Envoy & Istio Control Plane
+:page-layout: home
+:!sectids:
+
+image::logos.png[Envoy,600,200]
+
+
+[.text-center.strong]
+== Introduction
+
+The general idea of _Red Hat Service Mesh: Envoy & Istio Control Plane_ tutorial is to get a deep understanding of the following points:
+
+- Service Mesh Communication Flows
+- Istio-Envoy Objects Relationship
+- Envoy Proxy
+- Istio Control Plane Objects
+- Istio Global Services
+
+[.text-center.strong]
+== Get Started
+
+First of all, it is required to review your local machine prerequisites and laboratory environment access in order to be able to start working on this tutorial.
+
+Please, follow xref:01-setup.adoc[Get Started] for more information.
+
+
+[.text-center.strong]
+== Tutorial Steps
+
+=== Deploy Jump App
+
+In this step, you will deploy a demo application in Openshift in order to have a testing environment which supports the next tutorial exercises. 
+
+xref:02-jumpapp.adoc[Start this exercise...]
+
+
+=== Service Mesh Communication Flows
+
+In this phase, you will review how Service Mesh objects are created and allow the different communication flows in Service Mesh in a specific namespace.
+
+xref:03-flows.adoc[Start this exercise...]
+
+
+=== Istio-Envoy Objects Relationship
+
+During this step, you will go through Service Mesh objects definition and their effect at Envoy level.
+
+xref:04-relationship.adoc[Start this exercise...]
+
+=== Envoy Proxy
+
+During this part of the tutorial, you will play with Service Mesh _envoy filters_ and see the results.
+
+xref:05-envoy.adoc[Start this exercise...]
+
+=== Istio Control Plane
+
+In this phase, you will integrate a selected project in the Service Mesh Control Plane through an object names _ServiceMeshMember_ and review the implications for this project.
+
+xref:06-crtlplane.adoc[Start this exercise...]
+
+
+=== Istio Global Services
+
+During this step, you will review how to expose a secure HTTPS service using a Gateway, a custom certificate and Istio Secret Discovery Service (SDS).
+
+xref:07-services.adoc[Start this exercise...]
+
