@@ -8,13 +8,18 @@ image::logos.png[Envoy,600,200]
 [.text-center.strong]
 == Introduction
 
-The general idea of _Red Hat Service Mesh: Envoy & Istio Control Plane_ tutorial is to get a deep understanding of the following points:
+The general idea of _Red Hat Openshift 4 workshop tutorial is to get a deep understanding of the following points:
 
 - Service Mesh Communication Flows
 - Istio-Envoy Objects Relationship
 - Envoy Proxy
 - Istio Control Plane Objects
 - Istio Global Services
+- Cluster Operators (co)
+- Monitoring Stack (Prometheus, Alertmanager, Node Exporter, Grafana)
+- Logging Stack (Elasticsearch, Fluentd, Kibana)
+- Internal Registry
+- Liveness Proves
 
 [.text-center.strong]
 == Get Started
@@ -29,7 +34,7 @@ Please, follow xref:01-setup.adoc[Get Started] for more information.
 
 === Deploy Jump App
 
-In this step, you will deploy a demo application in Openshift in order to have a testing environment which supports the next tutorial exercises. 
+In this step, you will deploy a demo application in Openshift in order to have a testing environment which supports the next tutorial exercises.
 
 xref:02-jumpapp.adoc[Start this exercise...]
 
@@ -65,4 +70,3 @@ xref:06-crtlplane.adoc[Start this exercise...]
 During this step, you will review how to expose a secure HTTPS service using a Gateway, a custom certificate and Istio Secret Discovery Service (SDS).
 
 xref:07-services.adoc[Start this exercise...]
-
