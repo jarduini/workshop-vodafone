@@ -1,14 +1,19 @@
-# Red Hat Service Mesh: Envoy & Istio Control Plane
+# Red Hat Openshift 4 workshop
 
 ## Introduction
 
-The general idea of _Red Hat Service Mesh: Envoy & Istio Control Plane_ tutorial is to get a deep understanding of the following points:
+The general idea of _Red Hat Openshift 4 workshop tutorial is to get a deep understanding of the following points:
 
 - Service Mesh Communication Flows
 - Istio-Envoy Objects Relationship
 - Envoy Proxy
 - Istio Control Plane Objects
 - Istio Global Services
+- Cluster Operators (co)
+- Monitoring Stack (Prometheus, Alertmanager, Node Exporter, Grafana)
+- Logging Stack (Elasticsearch, Fluentd, Kibana)
+- Internal Registry
+- Liveness Proves
 
 ## Courseware official documentation
 
@@ -17,5 +22,7 @@ This tutorial has been developed using courseware. Please visit courseware https
 ## Author Information
 
 Asier Cidon @Red Hat
-
 asier.cidon@gmail.com
+
+Javier Arduini @Red Hat
+jarduini@redhat.com
