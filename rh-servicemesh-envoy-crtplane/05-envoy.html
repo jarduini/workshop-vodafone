@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Envoy Proxy :: Red Hat Service Mesh - Envoy &amp; Istio Control Plane</title>
+    <link rel="canonical" href="http://localhost:3000/rhs-build-course/index.html/rh-servicemesh-envoy-crtplane/05-envoy.html">
+    <link rel="prev" href="04-relationship.html">
+    <link rel="next" href="06-crtlplane.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="icon" href="../_/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img
+          src="../_/img/header_logo.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" href="http://localhost:3000/rhs-build-course/index.html">Red Hat Service Mesh - Envoy &amp; Istio Control Plane</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Books</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">CheatSheets</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">CheatSheet A</a>
+            <a class="navbar-item" href="#">CheatSheet B</a>
+            <a class="navbar-item" href="#">CheatSheet C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Upcoming Events</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Event A</a>
+            <a class="navbar-item" href="#">Event B</a>
+            <a class="navbar-item" href="#">Event C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Tutorial A</a>
+            <a class="navbar-item" href="#">Tutorial B</a>
+            <a class="navbar-item" href="#">Tutorial C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rh-servicemesh-envoy-crtplane" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Red Hat Service Mesh - Envoy &amp; Istio Control Plane</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="01-setup.html">1. Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#prerequisites">1.1 Prerequisites</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="01-setup.html#laboratory">1.2 Laboratory</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="02-jumpapp.html">2. Jump App Deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-jumpapp.html#login">2.1 Login in Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-jumpapp.html#github">2.2 Clone GitHub Repository</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-jumpapp.html#jumpappobjects">2.3 Create Jump App Objects in Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-jumpapp.html#test">2.4 Confirm Jump App is already running in Openshift</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="02-jumpapp.html#testapp">2.5 Access to Jump App</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-flows.html">3. Service Mesh Communication Flows</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-flows.html#create">3.1 Create Red Hat Service Mesh Traffic Flow objects</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="03-flows.html#gw">3.1.1 Gateways</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="03-flows.html#vsvc">3.1.2 Virtual Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="03-flows.html#dr">3.1.3 Destination Rules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="03-flows.html#services">3.1.4 K8s Services</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="03-flows.html#memberrol">3.2 Added a new project to Red Hat Service Mesh Control Plane</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="03-flows.html#finalsteps">3.3 Final steps</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="03-flows.html#annotation">3.3.1 Add Istio Sidecar annotation in Jump App deployments</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="03-flows.html#routes">3.3.2 Configure Routes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="03-flows.html#test">3.3.3 Confirm Jump App is running again</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-relationship.html">4. Istio-Envoy Objects Relationship</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="04-relationship.html#previous">4.1 Create a new microservice version</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-relationship.html#reviewing">4.2 Review Red Hat Service Mesh objects</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="04-relationship.html#dr">4.2.1 Destination Rules</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="04-relationship.html#vsvc">4.2.2 Virtual Services</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="04-relationship.html#testvsvc">4.2.2.1 Test Jump App</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="04-relationship.html#se">4.2.3 Service Entry</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="05-envoy.html">5. Envoy Proxy</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#ef">5.1 Envoy Filters</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="06-crtlplane.html">6. Istio Control Plane</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="06-crtlplane.html#review">6.1 Review consequences of adding a new project to Istio Control Plane</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="06-crtlplane.html#smr">6.1.1 Create <em>ServiceMeshMember</em> Object</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="06-crtlplane.html#np">6.1.2 Review Network Policies Created</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="06-crtlplane.html#test">6.2 Test <em>Jump App</em></a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="06-crtlplane.html#up">6.2.1 Confirm <em>Jump App</em> is running again</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="06-crtlplane.html#kiali">6.2.2 Visit Kiali</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="07-services.html">7. Istio Global Services</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="07-services.html#secure">7.1 Secure Gateways</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="07-services.html#cert">7.1.1 Generate a Custom Certificate</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="07-services.html#addcert">7.1.2 Create in Istio the Custom Certificate using SDS</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="07-services.html#gw">7.1.3 Configure Gateway</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="07-services.html#route">7.1.4 Modify Route</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="07-services.html#test">7.1.5 Test HTTPS connections</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Red Hat Service Mesh - Envoy &amp; Istio Control Plane</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Red Hat Service Mesh - Envoy & Istio Control Plane</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Red Hat Service Mesh - Envoy & Istio Control Plane</a></li>
+    <li><a href="05-envoy.html">5. Envoy Proxy</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/jarduini/workshop-template/edit/master/documentation/modules/ROOT/pages/05-envoy.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Envoy Proxy</h1>
+<div class="sect1">
+<h2 id="_review_envoy_proxy_through_envoy_filters"><a class="anchor" href="#_review_envoy_proxy_through_envoy_filters"></a>Review Envoy Proxy through Envoy Filters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In Envoy Proxy, a <em>filter chain</em> wraps a set of match criteria, an option TLS context, a set of filters, and various other parameters. When a request is received in an Envoy Proxy, a communication flow is generated going through a set of filter chains which might can modify this request in a number of ways.</p>
+</div>
+<div class="paragraph">
+<p>As you reviewed in the previous section, when a new Service Mesh object is created in a specific namespace, a set of configuration blocks are added to Envoy proxies in order to be able to apply these rules in the mesh traffic flow.</p>
+</div>
+<div class="paragraph">
+<p>In this step, you will review how <em>envoy filters</em> affect Envoy traffic applying different rules based on a set of criteria.</p>
+</div>
+<div class="paragraph">
+<p>Please, visit this link <a href="https://istio.io/v1.6/docs/reference/config/networking/envoy-filter/">Envoy Filters</a> for more information about <em>envoy filters</em>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Please, replace <strong>&lt;user_namespace&gt;</strong> with the value provided by the Instructor at the beginning of this tutorial or values obtained from openshift cluster.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="ef"><a class="anchor" href="#ef"></a>Envoy Filter</h3>
+<div class="paragraph">
+<p>Before applying changes, please save the original Envoy proxy configuration following next steps:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-input hljs" data-lang="input">oc exec &lt;back-golang-pod_id&gt; -c istio-proxy -n &lt;user_namespace&gt; curl localhost:15000/config_dump &gt; envoy-filter-config-init.json</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/jump-app-ef-golang.png" alt="jump app ef golang">
+</div>
+<div class="title">Figure 1. Envoy Configuration</div>
+</div>
+<div class="paragraph">
+<p>It is time to modify a <em>Envoy Filter</em> in order to see how it is implemented in Envoy proxy configuration through the respective configuration blocks:</p>
+</div>
+<div class="listingblock lines_space console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project {namespace}
+oc process -f 05-envoy-proxy/00-istio-envoy-rel-ef.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/jump-app-ef-new.png" alt="jump app ef new">
+</div>
+<div class="title">Figure 2. Modifed <em>Envoy Filter</em> Configuration</div>
+</div>
+<div class="paragraph">
+<p>Once this new <em>Envoy Filter</em> has been modified, save the custom Envoy proxy configuration following next steps:</p>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-input hljs" data-lang="input">oc exec &lt;back-golang-pod_id&gt; -c istio-proxy -n &lt;user_namespace&gt; curl localhost:15000/config_dump &gt; envoy-filter-config-custom.json</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, compare both files differences and draw a definitive conclusion:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/jump-app-ef-compare.png" alt="jump app ef compare">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Additionally, perform a GET request using <em>curl</em> in order to test out headers modification
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock console-input">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-input hljs" data-lang="input">curl -k -v <a href="https://back-golang-&lt;user_namespace&gt;.&lt;openshift_apps_domain&gt;/" class="bare">https://back-golang-&lt;user_namespace&gt;.&lt;openshift_apps_domain&gt;/</a></code></pre>
+</div>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-output hljs" data-lang="output">...
+&lt; envoy-filter-test: rh-servicemesh-crtlplane-tutorial
+...
+{"code":200,"message":"/jump - Greetings from Golang!"}%</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="04-relationship.html">4. Istio-Envoy Objects Relationship</a></span>
+  <span class="next"><a href="06-crtlplane.html">6. Istio Control Plane</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
