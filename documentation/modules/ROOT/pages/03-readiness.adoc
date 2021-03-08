@@ -72,30 +72,31 @@ include::partial$oc_process_apply.adoc[]
 
 // .Gateways Created
 // image::jump-app-gws-ok.png[]
+This will build a new imagestream on the project with the name
 
-[#vsvc]
-=== Virtual Services
+[#deploy]
 
-Once gateways are created and the application is reacheabled, it is time to create the traffic rules inside your namespace in order to route this traffic to the specific endpoint.
+=== Deployment
 
-Please, create new *virtual services* through the respective Openshift template executing the following command:
+Once the imagestream is created you can create the Deployment.
 
-:file: 03-jump-app-flows/01-jump-app-vss.yaml
+
+:file: 00-readiness-config/deployment.yml
 :namespace: <user_namespace>
 
 include::partial$oc_process_apply.adoc[]
+//
+// .Virtual Services Created
+// image::jump-app-vss-ok.png[]
 
-.Virtual Services Created
-image::jump-app-vss-ok.png[]
+[#mongo]
+=== Last to see the error messages dissapear we need to create a mongodb.
 
-[#dr]
-=== Destination Rules
 
 Once previous objects are created, it is required  to define the policies which will be applied to traffic intended for a service after routing has occurred.
 
-Please, create new *destination rules* through the respective Openshift template executing the following command:
 
-:file: 03-jump-app-flows/02-jump-app-drs.yaml
+:file: 00-readiness-config/mongodb.yml
 :namespace: <user_namespace>
 
 include::partial$oc_process_apply.adoc[]
