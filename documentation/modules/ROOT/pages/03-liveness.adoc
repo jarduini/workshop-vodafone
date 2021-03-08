@@ -1,16 +1,16 @@
-= Readiness configuration
+= Liveness Probes configuration
 
 [#create]
-== Configure Readiness to read from logs inside a container.
+== Configure liveness probes to read from logs inside a container.
 
-This page shows how to configure readiness probes for containers.
+This page shows how to configure liveness probes for containers.
 
-The kubelet uses readiness probes to know when a container is ready to start accepting traffic. A Pod is considered ready when all of its containers are ready.
-One use of this signal is to control which Pods are used as backends for Services. When a Pod is not ready, it is removed from Service load balancers.
+The kubelet uses liveness probes to know when to restart a container. For example, liveness probes could catch a deadlock, where an application is running, but unable to make progress.
+Restarting a container in such a state can help to make the application more available despite bugs.
 (Please, visit this link https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
 
 
-In this step, you have to be able to deploy these _Jump App_ in order to configure a readiness probe against the container logs. In case of error the container will be restarted.
+In this step, you have to be able to deploy these _Jump App_ in order to configure a liveness probe against the container logs. In case of error the container will be restarted.
 
 WARNING: Please, replace *<user_namespace>* with the value provided by the Instructor at the beginning of this tutorial.
 
@@ -63,7 +63,7 @@ To do that we need to create a file similar to this one in the *<user_namespace>
 
 
 
-Please, return to git repository and create *gateways* through the respective Openshift template executing the following command:
+Please, return to git repository and create *build-config* through the respective Openshift template executing the following command:
 
 :file: 00-readiness-config/build-config.yml
 :namespace: <user_namespace>

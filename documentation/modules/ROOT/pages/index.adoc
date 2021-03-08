@@ -34,11 +34,11 @@ In this step, you will deploy a demo application in Openshift in order to have a
 xref:02-jumpapp.adoc[Start this exercise...]
 
 
-=== Service Mesh Communication Flows
+=== Liveness configuration
 
 In this phase, you will review how Service Mesh objects are created and allow the different communication flows in Service Mesh in a specific namespace.
 
-xref:03-flows.adoc[Start this exercise...]
+xref:03-liveness.adoc[Start this exercise...]
 
 
 === Istio-Envoy Objects Relationship
