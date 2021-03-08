@@ -1,0 +1,56 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: back-springboot-v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: back-springboot
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: back-springboot
+        name: back-springboot-v1
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: 'true'
+    spec:
+      containers:
+        - name: back-springboot-v1
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/test-javi/back-springboot:develop
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 8443
+              protocol: TCP
+            - containerPort: 8778
+              protocol: TCP
+          env:
+            - name: APP_REF_NAME
+              value: jump-app
+          livenessProbe:
+            exec:
+              command:
+              - sh
+              - /tmp/src/scripts/check_logs.sh
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
