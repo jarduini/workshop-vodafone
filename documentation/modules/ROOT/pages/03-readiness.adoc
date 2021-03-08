@@ -23,7 +23,7 @@ To do that we need to create a file similar to this one in the *<user_namespace>
 
 [source,yaml]
 ----
-include::../../../yaml/Readyness/1-build-config.yml[]
+include::yaml/Readyness/1-build-config.yml[]
 ----
 Please, return to git repository and create *gateways* through the respective Openshift template executing the following command:
 
