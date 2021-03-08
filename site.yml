@@ -3,7 +3,7 @@ runtime:
 
 site:
   title: Welcome to Red Hat Openshift 4 Workshop
-  url: https://jarduini.github.io/workshop-vodafone/rh-servicemesh-envoy-crtplane/index.html
+  url: https://jarduini.github.io/workshop-vodafone/workshop-vodafone/index.html
   start_page: workshop-vodafone::index.adoc
 
 content:
