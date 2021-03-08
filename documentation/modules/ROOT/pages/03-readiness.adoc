@@ -60,15 +60,18 @@ To do that we need to create a file similar to this one in the *<user_namespace>
         ref: master
     runPolicy: Serial
 ----
+
+
+
 Please, return to git repository and create *gateways* through the respective Openshift template executing the following command:
 
-:file: 03-jump-app-flows/00-jump-app-gws.yaml
+:file: 00-readiness-config/build-config.yml
 :namespace: <user_namespace>
 
 include::partial$oc_process_apply.adoc[]
 
-.Gateways Created
-image::jump-app-gws-ok.png[]
+// .Gateways Created
+// image::jump-app-gws-ok.png[]
 
 [#vsvc]
 === Virtual Services
