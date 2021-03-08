@@ -313,8 +313,12 @@ Please, replace <strong>&lt;user_namespace&gt;</strong> with the value provided 
 <p>First of all, we need to build the springboot image to be use later by the Deployment. In the <em>Jump App</em> architecture, you have a couple of services which have to be exposes to external clients in order to present the Frontend and Backend services.</p>
 </div>
 <div class="paragraph">
-<p>To do that we need to create a file similar to this one in the <strong>&lt;user_namespace&gt;</strong>:
-Unresolved include directive in modules/ROOT/pages/03-readiness.adoc - include::../../../../yaml/Readyness/1-build-config.yml[]</p>
+<p>To do that we need to create a file similar to this one in the <strong>&lt;user_namespace&gt;</strong>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">Unresolved include directive in modules/ROOT/pages/03-readiness.adoc - include::../../../yaml/Readyness/1-build-config.yml[]</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Please, return to git repository and create <strong>gateways</strong> through the respective Openshift template executing the following command:</p>
