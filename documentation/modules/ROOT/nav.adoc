@@ -9,8 +9,8 @@
 ** xref:02-jumpapp.adoc#test[2.4 Confirm Jump App is already running in Openshift]
 ** xref:02-jumpapp.adoc#testapp[2.5 Access to Jump App]
 
-* xref:03-flows.adoc[3. Service Mesh Communication Flows]
-** xref:03-flows.adoc#create[3.1 Create Red Hat Service Mesh Traffic Flow objects]
+* xref:03-flows.adoc[3. Readiness configuration]
+** xref:03-flows.adoc#create[3.1 Configure Readiness to read from logs inside a container]
 *** xref:03-flows.adoc#gw[3.1.1 Gateways]
 *** xref:03-flows.adoc#vsvc[3.1.2 Virtual Services]
 *** xref:03-flows.adoc#dr[3.1.3 Destination Rules]

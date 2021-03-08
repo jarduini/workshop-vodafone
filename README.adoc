@@ -4,11 +4,6 @@
 
 The general idea of _Red Hat Openshift 4 workshop tutorial is to get a deep understanding of the following points:
 
-- Service Mesh Communication Flows
-- Istio-Envoy Objects Relationship
-- Envoy Proxy
-- Istio Control Plane Objects
-- Istio Global Services
 - Cluster Operators (co)
 - Monitoring Stack (Prometheus, Alertmanager, Node Exporter, Grafana)
 - Logging Stack (Elasticsearch, Fluentd, Kibana)
