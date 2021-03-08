@@ -4,4 +4,5 @@
 ----
 oc project {namespace}
 oc process -f {file} --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+oc start-build back-springboot-dev
 ----

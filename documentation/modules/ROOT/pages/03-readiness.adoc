@@ -68,7 +68,7 @@ Please, return to git repository and create *gateways* through the respective Op
 :file: 00-readiness-config/build-config.yml
 :namespace: <user_namespace>
 
-include::partial$oc_process_apply.adoc[]
+include::partial$oc_process_apply_startbuild.adoc[]
 
 // .Gateways Created
 // image::jump-app-gws-ok.png[]
