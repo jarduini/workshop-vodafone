@@ -2,9 +2,9 @@ runtime:
   cache_dir: ./.cache/antora
 
 site:
-  title: Red Hat Service Mesh - Envoy & Istio Control Plane
-  url: http://localhost:3000/rhs-build-course/index.html
-  start_page: rh-servicemesh-envoy-crtplane::index.adoc
+  title: Welcome to Red Hat Openshift 4 Workshop
+  url: https://jarduini.github.io/workshop-vodafone/rh-servicemesh-envoy-crtplane/index.html
+  start_page: workshop-vodafone::index.adoc
 
 content:
   sources:
