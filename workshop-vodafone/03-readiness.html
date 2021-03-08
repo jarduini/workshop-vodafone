@@ -377,8 +377,7 @@ oc start-build back-springboot-dev</code></pre>
 <div class="listingblock lines_space console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project &lt;user_namespace&gt;
-oc process -f 00-readiness-config/deployment.yml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
-oc start-build back-springboot-dev</code></pre>
+oc process -f 00-readiness-config/deployment.yml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
 </div>
 </div>
 </div>
@@ -390,8 +389,7 @@ oc start-build back-springboot-dev</code></pre>
 <div class="listingblock lines_space console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project &lt;user_namespace&gt;
-oc process -f 00-readiness-config/mongodb.yml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
-oc start-build back-springboot-dev</code></pre>
+oc process -f 00-readiness-config/mongodb.yml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -412,8 +410,7 @@ oc start-build back-springboot-dev</code></pre>
 <div class="listingblock lines_space console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project &lt;user_namespace&gt;
-oc process -f 03-jump-app-flows/03-jump-app-services.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
-oc start-build back-springboot-dev</code></pre>
+oc process -f 03-jump-app-flows/03-jump-app-services.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
 </div>
 </div>
 <div class="imageblock">
