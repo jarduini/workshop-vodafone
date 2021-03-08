@@ -317,7 +317,42 @@ Please, replace <strong>&lt;user_namespace&gt;</strong> with the value provided 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">Unresolved include directive in modules/ROOT/pages/03-readiness.adoc - include::Readyness/1-build-config.yml[]</code></pre>
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  ---
+  kind: ImageStream
+  apiVersion: image.openshift.io/v1
+  metadata:
+      name: back-springboot
+  spec:
+    lookupPolicy:
+      local: false
+  ---
+  kind: BuildConfig
+  apiVersion: build.openshift.io/v1
+  metadata:
+    name: back-springboot-dev
+  spec:
+    nodeSelector: null
+    output:
+      to:
+        kind: ImageStreamTag
+        name: 'back-springboot:develop'
+    resources: {}
+    successfulBuildsHistoryLimit: 5
+    failedBuildsHistoryLimit: 5
+    strategy:
+      type: Source
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          namespace: openshift
+          name: 'java-test:latest'
+    postCommit: {}
+    source:
+      type: Git
+      git:
+        uri: 'https://github.com/jarduini/jump-app-java-springboot.git'
+        ref: master
+    runPolicy: Serial</code></pre>
 </div>
 </div>
 <div class="paragraph">
