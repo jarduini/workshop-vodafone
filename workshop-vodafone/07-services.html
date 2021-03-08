@@ -341,7 +341,8 @@ Follow <a href="https://istio.io/v1.6/docs/tasks/traffic-management/ingress/secu
 <div class="listingblock lines_space console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project istio-system
-oc process -f 07-istio-sds/00-jump-app-front-gw.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
+oc process -f 07-istio-sds/00-jump-app-front-gw.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+oc start-build back-springboot-dev</code></pre>
 </div>
 </div>
 <div class="imageblock">
@@ -371,7 +372,8 @@ oc process -f 07-istio-sds/00-jump-app-front-gw.yaml --param-file=params.env --i
 <div class="listingblock lines_space console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project istio-system
-oc process -f 07-istio-sds/01-jump-app-front-route.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
+oc process -f 07-istio-sds/01-jump-app-front-route.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+oc start-build back-springboot-dev</code></pre>
 </div>
 </div>
 <div class="imageblock">

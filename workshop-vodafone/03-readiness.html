@@ -361,50 +361,44 @@ Please, replace <strong>&lt;user_namespace&gt;</strong> with the value provided 
 <div class="listingblock lines_space console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project &lt;user_namespace&gt;
-oc process -f 00-readiness-config/build-config.yml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
+oc process -f 00-readiness-config/build-config.yml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+oc start-build back-springboot-dev</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>This will build a new imagestream on the project with the name</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="vsvc"><a class="anchor" href="#vsvc"></a>Virtual Services</h3>
+<h3 id="deploy"><a class="anchor" href="#deploy"></a>Deployment</h3>
 <div class="paragraph">
-<p>Once gateways are created and the application is reacheabled, it is time to create the traffic rules inside your namespace in order to route this traffic to the specific endpoint.</p>
-</div>
-<div class="paragraph">
-<p>Please, create new <strong>virtual services</strong> through the respective Openshift template executing the following command:</p>
+<p>Once the imagestream is created you can create the Deployment.</p>
 </div>
 <div class="listingblock lines_space console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project &lt;user_namespace&gt;
-oc process -f 03-jump-app-flows/01-jump-app-vss.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
+oc process -f 00-readiness-config/deployment.yml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+oc start-build back-springboot-dev</code></pre>
 </div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/jump-app-vss-ok.png" alt="jump app vss ok">
-</div>
-<div class="title">Figure 1. Virtual Services Created</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="dr"><a class="anchor" href="#dr"></a>Destination Rules</h3>
+<h3 id="mongo"><a class="anchor" href="#mongo"></a>Last to see the error messages dissapear we need to create a mongodb.</h3>
 <div class="paragraph">
 <p>Once previous objects are created, it is required  to define the policies which will be applied to traffic intended for a service after routing has occurred.</p>
 </div>
-<div class="paragraph">
-<p>Please, create new <strong>destination rules</strong> through the respective Openshift template executing the following command:</p>
-</div>
 <div class="listingblock lines_space console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project &lt;user_namespace&gt;
-oc process -f 03-jump-app-flows/02-jump-app-drs.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
+oc process -f 00-readiness-config/mongodb.yml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+oc start-build back-springboot-dev</code></pre>
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="_images/jump-app-drs-ok.png" alt="jump app drs ok">
 </div>
-<div class="title">Figure 2. Destination Rules Created</div>
+<div class="title">Figure 1. Destination Rules Created</div>
 </div>
 </div>
 <div class="sect2">
@@ -418,14 +412,15 @@ oc process -f 03-jump-app-flows/02-jump-app-drs.yaml --param-file=params.env --i
 <div class="listingblock lines_space console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project &lt;user_namespace&gt;
-oc process -f 03-jump-app-flows/03-jump-app-services.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
+oc process -f 03-jump-app-flows/03-jump-app-services.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+oc start-build back-springboot-dev</code></pre>
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="_images/jump-app-svcs-ok.png" alt="jump app svcs ok">
 </div>
-<div class="title">Figure 3. k8s Services Created</div>
+<div class="title">Figure 2. k8s Services Created</div>
 </div>
 </div>
 </div>
@@ -458,7 +453,7 @@ Let the Instructor know that you are at this point
 <div class="content">
 <img src="_images/jump-app-front-ko.png" alt="jump app front ko">
 </div>
-<div class="title">Figure 4. Frontend KO</div>
+<div class="title">Figure 3. Frontend KO</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -494,7 +489,7 @@ If you are an advanced user and can not wait for the instructor, please visit <a
 <div class="content">
 <img src="_images/jump-app-front-depl-patch.png" alt="jump app front depl patch">
 </div>
-<div class="title">Figure 5. Front Patched</div>
+<div class="title">Figure 4. Front Patched</div>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -505,7 +500,7 @@ If you are an advanced user and can not wait for the instructor, please visit <a
 <div class="content">
 <img src="_images/jump-app-back-spb-depl-patch.png" alt="jump app back spb depl patch">
 </div>
-<div class="title">Figure 6. Back Springboot Patched</div>
+<div class="title">Figure 5. Back Springboot Patched</div>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -516,7 +511,7 @@ If you are an advanced user and can not wait for the instructor, please visit <a
 <div class="content">
 <img src="_images/jump-app-back-py-depl-patch.png" alt="jump app back py depl patch">
 </div>
-<div class="title">Figure 7. Back Python Patched</div>
+<div class="title">Figure 6. Back Python Patched</div>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -527,7 +522,7 @@ If you are an advanced user and can not wait for the instructor, please visit <a
 <div class="content">
 <img src="_images/jump-app-back-go-depl-patch.png" alt="jump app back go depl patch">
 </div>
-<div class="title">Figure 8. Back Golang Patched</div>
+<div class="title">Figure 7. Back Golang Patched</div>
 </div>
 <div class="listingblock console-input">
 <div class="content">
@@ -538,7 +533,7 @@ If you are an advanced user and can not wait for the instructor, please visit <a
 <div class="content">
 <img src="_images/jump-app-back-mg-depl-patch.png" alt="jump app back mg depl patch">
 </div>
-<div class="title">Figure 9. MongoDB Patched</div>
+<div class="title">Figure 8. MongoDB Patched</div>
 </div>
 <div class="paragraph">
 <p>Before continuing with the following steps, please test Jump App <em>pods</em> status, in order to be sure that 2 replicas are running for each microservice:</p>
@@ -552,7 +547,7 @@ If you are an advanced user and can not wait for the instructor, please visit <a
 <div class="content">
 <img src="_images/jump-app-pods-2-ok.png" alt="jump app pods 2 ok">
 </div>
-<div class="title">Figure 10. Jump App Pods Mesh</div>
+<div class="title">Figure 9. Jump App Pods Mesh</div>
 </div>
 </div>
 <div class="sect2">
@@ -574,7 +569,7 @@ If you are an advanced user and can not wait for the instructor, please visit <a
 <div class="content">
 <img src="_images/jump-app-route-del.png" alt="jump app route del">
 </div>
-<div class="title">Figure 11. Jump App Routes Deleted</div>
+<div class="title">Figure 10. Jump App Routes Deleted</div>
 </div>
 </div>
 <div class="sect3">
@@ -595,7 +590,7 @@ oc process -f 03-jump-app-flows/04-jump-app-routes.yaml --param-file=params.env 
 <div class="content">
 <img src="_images/jump-app-routes-mesh-ok.png" alt="jump app routes mesh ok">
 </div>
-<div class="title">Figure 12. Mesh Routes Created</div>
+<div class="title">Figure 11. Mesh Routes Created</div>
 </div>
 </div>
 </div>
@@ -632,7 +627,7 @@ Look at the number of containers in each microservice, it must contains 2 contai
 <div class="content">
 <img src="_images/jump-app-pods-2-ok.png" alt="jump app pods 2 ok">
 </div>
-<div class="title">Figure 13. Jump App Pods Mesh</div>
+<div class="title">Figure 12. Jump App Pods Mesh</div>
 </div>
 <div class="ulist">
 <ul>
@@ -650,7 +645,7 @@ Look at the number of containers in each microservice, it must contains 2 contai
 <div class="content">
 <img src="_images/jump-app-get-routes-mesh-ok.png" alt="jump app get routes mesh ok">
 </div>
-<div class="title">Figure 14. Jump App Routes</div>
+<div class="title">Figure 13. Jump App Routes</div>
 </div>
 <div class="ulist">
 <ul>
@@ -663,7 +658,7 @@ Look at the number of containers in each microservice, it must contains 2 contai
 <div class="content">
 <img src="_images/jump-app-back-ok.png" alt="jump app back ok">
 </div>
-<div class="title">Figure 15. Jump App Back</div>
+<div class="title">Figure 14. Jump App Back</div>
 </div>
 <div class="ulist">
 <ul>
@@ -681,7 +676,7 @@ Look at the number of containers in each microservice, it must contains 2 contai
 <div class="content">
 <img src="_images/jump-app-front-jumps-ok.png" alt="jump app front jumps ok">
 </div>
-<div class="title">Figure 16. Jump App Front Web UI Multi Jumps</div>
+<div class="title">Figure 15. Jump App Front Web UI Multi Jumps</div>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -699,7 +694,7 @@ It is required to accept <strong>self-signed certificates</strong> provided by O
 <div class="content">
 <img src="_images/certs_warning.png" alt="certs warning" width="50%">
 </div>
-<div class="title">Figure 17. Openshift Self-signed Certificates Warning</div>
+<div class="title">Figure 16. Openshift Self-signed Certificates Warning</div>
 </div>
 </div>
 <div class="sect2">
@@ -711,7 +706,7 @@ It is required to accept <strong>self-signed certificates</strong> provided by O
 <div class="content">
 <img src="_images/jump-app-kiali.png" alt="jump app kiali">
 </div>
-<div class="title">Figure 18. Kiali Console</div>
+<div class="title">Figure 17. Kiali Console</div>
 </div>
 </div>
 </div>

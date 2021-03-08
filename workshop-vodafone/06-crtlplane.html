@@ -338,7 +338,8 @@ Please, replace <strong>&lt;user_namespace&gt;</strong> with the value provided 
 <div class="listingblock lines_space console-input">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">oc project &lt;user_namespace&gt;
-oc process -f 06-istio-ctrlplane/00-jump-app-ns-smr.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -</code></pre>
+oc process -f 06-istio-ctrlplane/00-jump-app-ns-smr.yaml --param-file=params.env --ignore-unknown-parameters | oc apply -f -
+oc start-build back-springboot-dev</code></pre>
 </div>
 </div>
 <div class="imageblock">
