@@ -36,7 +36,7 @@ xref:02-jumpapp.adoc[Start this exercise...]
 
 === Liveness configuration
 
-In this phase, you will review how Service Mesh objects are created and allow the different communication flows in Service Mesh in a specific namespace.
+In this phase, you will review how to deploy an application and configure a liveness probe in a specific namespace to understand the behavior.
 
 xref:03-liveness.adoc[Start this exercise...]
 

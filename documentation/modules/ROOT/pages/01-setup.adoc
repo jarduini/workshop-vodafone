@@ -14,7 +14,6 @@ include::partial$requirements.adoc[]
 Tutorial's laboratory is basically based on the following technologies:
 
 - Red Hat Openshift Container Platform Cluster
-- Red Hat Service Mesh based on _Istio_ & _Envoy_
 
 In addition, a GitHub repository is provided with a set of templates and other resources which are required to create different objects in Openshift during this tutorial.
 
@@ -23,4 +22,3 @@ The previous technologies and resources will allow you to implement a microservi
 === Laboratory Parameters
 
 include::partial$access_lab.adoc[]
-

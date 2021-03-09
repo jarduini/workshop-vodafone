@@ -9,8 +9,8 @@
 ** xref:02-jumpapp.adoc#test[2.4 Confirm Jump App is already running in Openshift]
 ** xref:02-jumpapp.adoc#testapp[2.5 Access to Jump App]
 
-* xref:03-liveness.adoc[3. Readiness configuration]
-** xref:03-liveness.adoc#create[3.1 Configure Readiness to read from logs inside a container]
+* xref:03-liveness.adoc[3. Liveness Probes configuration]
+** xref:03-liveness.adoc#create[3.1 Configure Liveness Probe to read from logs inside a container]
 *** xref:03-liveness.adoc#bc[3.1.1 BuildConfig]
 *** xref:03-liveness.adoc#vsvc[3.1.2 Virtual Services]
 *** xref:03-liveness.adoc#dr[3.1.3 Destination Rules]
